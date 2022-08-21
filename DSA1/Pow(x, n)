@@ -1,3 +1,15 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         return pow(x, n)
+
+class Solution:
+    def myPow(self, base: float, exponent: int) -> float:
+        def calculate(base, exponent):
+            if base == 0: return 0
+            if base == 1 or exponent == 0: return 1
+            if exponent == 1: return base
+            result = calculate(base, exponent//2)
+            result = result * result
+            return base * result if exponent%2 != 0 else result
+        
+        return calculate(base, abs(exponent)) if exponent >= 0 else 1/calculate(base, abs(exponent))
