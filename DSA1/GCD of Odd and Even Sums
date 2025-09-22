@@ -1,0 +1,9 @@
+class Solution:
+    def gcdOfOddEvenSums(self, n: int) -> int:
+        e, o = 0, 0
+        for i in range(1, n + 1):
+            e += 2 * i
+            o += (2 * i) - 1
+        return e - o
+
+        
